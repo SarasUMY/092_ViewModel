@@ -168,14 +168,12 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()) {
             fontSize = 16.sp
         )
     }
-    Spacer(modifier = Modifier.height(100.dp))
+    Spacer(modifier = Modifier.height(3.dp))
     TextHasil(
-        namanya = cobaViewModel.namaUsr,
-        telponnya = cobaViewModel.noTlp,
         emailnya = cobaViewModel.email,
         jenisnya = cobaViewModel.jenisKl,
         statusnya = cobaViewModel.stat,
-        alamatnya = cobaViewModel.alamat,
+        alamatnya = cobaViewModel.alamat
     )
 }
 
@@ -186,7 +184,7 @@ fun SelectJK(
 ) {
     var selectedValue by rememberSaveable { mutableStateOf("") }
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    Row(modifier = Modifier.padding(16.dp)) {
         options.forEach { item ->
             Row(
                 modifier = Modifier.selectable(
@@ -218,7 +216,7 @@ fun SelectST(
 ) {
     var selectedValue by rememberSaveable { mutableStateOf("") }
 
-    Column(modifier = Modifier.padding(16.dp)) {
+    Row(modifier = Modifier.padding(16.dp)) {
         options.forEach { status ->
             Row(
                 modifier = Modifier.selectable(
@@ -244,23 +242,14 @@ fun SelectST(
 }
 
 @Composable
-fun TextHasil(namanya: String, telponnya: String, jenisnya: String, alamatnya: String, emailnya: String, statusnya: String){
+fun TextHasil( jenisnya: String, alamatnya: String, emailnya: String, statusnya: String){
     ElevatedCard(
         elevation = CardDefaults.cardElevation(
-            defaultElevation = 50.dp
+            defaultElevation = 10.dp
         ),
         modifier = Modifier.fillMaxWidth()
     ) {
-        Text(
-            text = "Username : " + namanya,
-            modifier = Modifier.
-            padding(horizontal = 10.dp, vertical = 4.dp)
-        )
-        Text(
-            text = "Telepon : " + telponnya,
-            modifier = Modifier.
-            padding(horizontal = 10.dp, vertical = 4.dp)
-        )
+
         Text(
             text = "Email : " + emailnya,
             modifier = Modifier.
